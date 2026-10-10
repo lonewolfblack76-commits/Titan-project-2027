@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101426">
+<title>The Titan Project | CBSE Class 10 Board Mission</title>
+<style>
+:root{--bg:#0b1020;--panel:#141b30;--panel2:#19223a;--text:#f5f7ff;--muted:#aab4ce;--line:#2b3654;--blue:#7c9cff;--cyan:#68e0d0;--gold:#ffd166;--pink:#ff8fbd;--purple:#bba0ff;--green:#8ce0a1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top left,#1a2850 0%,transparent 42%),radial-gradient(ellipse at top right,#282047 0%,transparent 36%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+.wrap{max-width:1120px;margin:auto;padding:24px 18px 60px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.08em;font-size:.88rem}.wolf{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--purple));display:grid;place-items:center;font-size:22px;box-shadow:0 8px 25px #7c9cff40}.pill{border:1px solid #415071;border-radius:999px;padding:7px 12px;color:#d8e0f7;font-size:.78rem}
+.hero{position:relative;overflow:hidden;border:1px solid #344263;border-radius:28px;padding:clamp(24px,5vw,52px);background:linear-gradient(115deg,#1a2947f2,#201b3af2 65%,#2b2047f2);box-shadow:0 25px 80px #0003}.hero:after{content:"🐺";position:absolute;right:5%;bottom:-35px;font-size:clamp(110px,22vw,230px);opacity:.10;transform:rotate(-10deg);pointer-events:none}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.15em;font-size:.75rem;text-transform:uppercase}.hero h1{font-size:clamp(2.4rem,7vw,5rem);line-height:.98;letter-spacing:-.055em;margin:14px 0 18px;max-width:750px}.hero h1 span{color:var(--gold)}.hero p{max-width:650px;color:#c5cee5;font-size:1.03rem}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800;cursor:pointer;background:var(--gold);color:#202033;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.secondary{background:#ffffff10;color:var(--text);border:1px solid #566384}.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 32px}.stat{border:1px solid var(--line);background:#121a2cdb;border-radius:18px;padding:17px}.stat strong{display:block;font-size:1.55rem;letter-spacing:-.04em}.stat span{color:var(--muted);font-size:.82rem}
+section{margin-top:32px;scroll-margin-top:20px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:15px}.section-head h2{font-size:clamp(1.45rem,4vw,2rem);margin:0;letter-spacing:-.035em}.section-head p{margin:3px 0 0;color:var(--muted);font-size:.9rem}.kicker{font-size:.72rem;color:var(--cyan);text-transform:uppercase;font-weight:850;letter-spacing:.14em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,#151e33,#101729);padding:19px}.card h3{margin:0 0 5px;font-size:1.08rem}.card p{color:var(--muted);margin:4px 0}.subject-tag{display:inline-block;border-radius:999px;padding:4px 9px;font-size:.72rem;font-weight:800;margin-bottom:10px}.math{background:#243a6b;color:#a9c4ff}.science{background:#17453f;color:#9ff3df}.sst{background:#513b20;color:#ffda91}.language{background:#4a2b4a;color:#ffc0e0}.schedule{display:grid;gap:9px}.slot{display:grid;grid-template-columns:155px 1fr;gap:14px;align-items:start;border:1px solid var(--line);background:#11182a;border-radius:14px;padding:12px 14px}.time{font-size:.82rem;font-weight:850;color:var(--cyan)}.slot strong{display:block}.slot small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+.day-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px}.day-btn{border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:#141b30;color:var(--muted);font-weight:750;cursor:pointer}.day-btn.active{background:var(--blue);border-color:var(--blue);color:#101426}.day-plan{display:grid;grid-template-columns:1fr 1fr;gap:12px}.planbox{background:#121a2c;border:1px solid var(--line);border-radius:16px;padding:17px}.planbox .time{margin-bottom:8px;display:block}.planbox h3{margin:0 0 6px}
+.mission-list{display:grid;gap:9px}.mission{display:flex;gap:11px;align-items:flex-start;padding:12px;border:1px solid var(--line);background:#11182a;border-radius:12px}.mission input{accent-color:var(--cyan);width:18px;height:18px;margin-top:3px;flex-shrink:0}.mission label{cursor:pointer}.mission input:checked+label{text-decoration:line-through;color:#8f9ab5}.progress-wrap{height:8px;background:#26314c;border-radius:999px;overflow:hidden;margin:12px 0}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .2s}.progress-text{font-size:.82rem;color:var(--muted)}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.phase{border:1px solid var(--line);background:#121a2c;border-radius:17px;padding:18px}.phase .num{font-weight:900;color:var(--gold);font-size:.78rem;letter-spacing:.1em}.phase h3{margin:7px 0}.phase p,.phase li{color:var(--muted);font-size:.88rem}.phase ul{padding-left:19px}
+.links{display:flex;flex-wrap:wrap;gap:10px}.links a{color:#c4d5ff;text-decoration:none;border-bottom:1px solid #586a9a;padding-bottom:2px}.note{border-left:3px solid var(--gold);padding:12px 15px;background:#2a251b77;border-radius:0 12px 12px 0;color:#e9dfc5;font-size:.9rem}
+footer{text-align:center;color:#7f8ba9;font-size:.8rem;margin-top:42px;padding-top:20px;border-top:1px solid var(--line)}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.phases,.day-plan{grid-template-columns:1fr}.slot{grid-template-columns:1fr;gap:3px}.section-head{align-items:start;flex-direction:column}.topbar{align-items:flex-start}.pill{max-width:150px;text-align:center}}
+@media print{body{background:white;color:#111}.hero,.card,.stat,.slot,.planbox,.phase,.mission{background:white;color:#111;border-color:#bbb}.hero p,.stat span,.slot small,.card p,.phase p,.phase li,.progress-text{color:#444}.hero:after,.hero-actions,.day-tabs{display:none}.wrap{max-width:none}.pill{color:#111}}
+
+.tool-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+.tool-card{border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,#151e33,#101729);padding:19px;min-width:0}
+.tool-card h3{margin:0 0 6px}.tool-card p{color:var(--muted);font-size:.88rem}
+.chapter-controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+select,input[type="text"],input[type="number"],input[type="date"]{background:#0d1425;color:var(--text);border:1px solid #394766;border-radius:10px;padding:10px;min-width:0;font:inherit}
+.chapter-list{display:grid;gap:8px}.chapter-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#11182a}.chapter-row label{font-size:.9rem}.chapter-row select{max-width:145px;padding:7px;font-size:.82rem}
+.field-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.field-row>*{flex:1}.mini-btn{background:#253454;color:var(--text);border:1px solid #42547a;border-radius:10px;padding:9px 12px;font-weight:750;cursor:pointer}.mini-btn:hover{filter:brightness(1.15)}
+.timer-display{font-size:clamp(2.5rem,8vw,4rem);font-variant-numeric:tabular-nums;font-weight:900;letter-spacing:-.06em;text-align:center;margin:18px 0;color:var(--cyan)}.timer-presets{display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.timer-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}.timer-status{text-align:center;color:var(--muted);font-size:.85rem}
+.mark-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.88rem}.mark-table th,.mark-table td{border-bottom:1px solid var(--line);padding:9px 5px;text-align:left}.mark-table input{width:75px;padding:7px}.mark-summary{display:flex;gap:10px;flex-wrap:wrap;margin-top:13px}.mark-stat{background:#202b45;border-radius:12px;padding:12px;flex:1;min-width:110px}.mark-stat strong{display:block;font-size:1.35rem}.mark-stat span{font-size:.78rem;color:var(--muted)}
+@media(max-width:760px){.tool-grid{grid-template-columns:1fr}.chapter-row{grid-template-columns:1fr}.chapter-row select{max-width:none;width:100%}}
+
+</style>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#101426">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Titan Project">
+
+</head>
+<body>
+<div class="wrap">
+<header class="topbar"><div class="brand"><div class="wolf">🐺</div><div>THE TITAN PROJECT<br><span style="color:var(--muted);font-weight:600;font-size:.72rem;letter-spacing:.04em">BOARD EXAM EDITION</span></div></div><div class="pill">CBSE · CLASS X · 2027</div></header>
+<main>
+<div class="hero">
+<div class="eyebrow">Your mission starts now</div>
+<h1>Study smart.<br><span>Become unstoppable.</span></h1>
+<p>A personalised board-exam command centre for a 95%+ goal. Finish the remaining syllabus, master Standard Mathematics, keep Sanskrit moving, and turn mistakes into marks.</p>
+<div class="hero-actions"><a class="btn" href="#daily">View my timetable ↓</a><a class="btn secondary" href="#mission">Track weekly progress</a><a class="btn secondary" href="#dashboard">Chapter dashboard</a><button class="btn secondary" onclick="window.print()">Print this plan</button></div>
+</div>
+<div class="stats">
+<div class="stat"><strong>95%+</strong><span>Target score</span></div><div class="stat"><strong>041</strong><span>Standard Mathematics</span></div><div class="stat"><strong>5</strong><span>Core subject groups + AI</span></div><div class="stat"><strong>7 days</strong><span>Repeatable weekly cycle</span></div>
+</div>
+
+<section id="daily">
+<div class="section-head"><div><div class="kicker">01 / Daily rhythm</div><h2>Your weekday timetable</h2><p>Built around school and both online classes.</p></div></div>
+<div class="schedule" id="schedule"></div>
+</section>
+
+<section id="weekly">
+<div class="section-head"><div><div class="kicker">02 / Weekly rotation</div><h2>Choose your day</h2><p>Keep current chapters moving while revisiting older material.</p></div></div>
+<div class="day-tabs" id="dayTabs"></div><div class="day-plan" id="dayPlan"></div>
+</section>
+
+<section id="chapters">
+<div class="section-head"><div><div class="kicker">03 / Current chapter focus</div><h2>Your active missions</h2><p>These are the chapters you said your teachers are covering now.</p></div></div>
+<div class="grid">
+<div class="card"><span class="subject-tag math">MATHEMATICS · STANDARD 041</span><h3>Quadratic Equations</h3><p>Standard form → factorisation → quadratic formula → discriminant → word problems.</p><p><strong>Practice target:</strong> 5 basic, 5 moderate, 2 challenging questions per session.</p></div>
+<div class="card"><span class="subject-tag science">PHYSICS</span><h3>Electricity</h3><p>Build concept clarity, learn formulas and units, then solve numerical problems with full working.</p></div>
+<div class="card"><span class="subject-tag science">BIOLOGY</span><h3>How Do Organisms Reproduce?</h3><p>Understand processes, compare methods, practise labelled diagrams and NCERT questions.</p></div>
+<div class="card"><span class="subject-tag science">CHEMISTRY</span><h3>Metals and Non-metals</h3><p>Learn properties, reactions, reactivity series, ionic compounds and extraction concepts in your prescribed syllabus.</p></div>
+<div class="card"><span class="subject-tag sst">SOCIAL SCIENCE</span><h3>Money and Credit</h3><p>Learn key terms, formal and informal credit, examples and structured answers.</p></div>
+<div class="card"><span class="subject-tag language">ENGLISH</span><h3>Glimpses of India</h3><p>Revise each part, themes and character/details, then practise text-based and long-answer questions.</p></div>
+<div class="card"><span class="subject-tag language">SECOND LANGUAGE</span><h3>Sanskrit — start now</h3><p>Build a daily 20–25 minute habit: grammar, vocabulary, पाठ comprehension, translation and writing formats as prescribed.</p></div>
+<div class="card"><span class="subject-tag math">REVISION</span><h3>Mid-term chapters</h3><p>You've completed the mid-term syllabus. Keep it fresh with short recall sessions and weekly mixed practice instead of restarting every chapter.</p></div>
+</div>
+</section>
+
+
+<section id="dashboard">
+<div class="section-head"><div><div class="kicker">04 / Chapter dashboard</div><h2>Your chapter completion tracker</h2><p>Update each chapter as you learn it. Your changes stay in this browser on this device.</p></div></div>
+<div class="tool-card">
+<div class="field-row"><select id="chapterSubject" aria-label="Subject"><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Social Science</option><option>English</option><option>Sanskrit</option><option>Artificial Intelligence</option></select><input id="chapterName" type="text" placeholder="Add a chapter or topic" aria-label="Chapter name"><button class="mini-btn" id="addChapter">+ Add</button></div>
+<div class="progress-text" id="chapterProgressText">0 chapters tracked</div><div class="progress-wrap"><div class="progress-bar" id="chapterProgressBar"></div></div>
+<div class="chapter-list" id="chapterList"></div>
+<p style="margin-bottom:0">Suggested starting list includes your current chapters. Add the remaining chapters from your official syllabus as you go.</p>
+</div>
+</section>
+
+<section id="studytools">
+<div class="section-head"><div><div class="kicker">05 / Focus tools</div><h2>Study timer + marks tracker</h2><p>Use a focus sprint during study time, then record test results.</p></div></div>
+<div class="tool-grid">
+<div class="tool-card">
+<h3>⏱️ Focus timer</h3><p>Choose a sprint length. Keep your phone away and work on one task.</p>
+<div class="timer-presets"><button class="mini-btn" data-min="25">25 min</button><button class="mini-btn" data-min="45">45 min</button><button class="mini-btn" data-min="60">60 min</button></div>
+<div class="timer-display" id="timerDisplay">25:00</div><div class="timer-status" id="timerStatus">Ready for a focus sprint</div>
+<div class="timer-actions"><button class="btn" id="timerStart">Start</button><button class="btn secondary" id="timerPause">Pause</button><button class="btn secondary" id="timerReset">Reset</button></div>
+</div>
+<div class="tool-card">
+<h3>🎯 Marks tracker</h3><p>Record your latest test marks. Enter marks earned and maximum marks.</p>
+<div class="field-row"><input id="markSubject" type="text" placeholder="Subject / test" aria-label="Subject or test"><input id="markEarned" type="number" min="0" placeholder="Scored" aria-label="Marks scored"><input id="markMax" type="number" min="1" placeholder="Out of" aria-label="Maximum marks"><button class="mini-btn" id="addMark">+ Save</button></div>
+<table class="mark-table"><thead><tr><th>Test</th><th>Score</th><th>%</th><th></th></tr></thead><tbody id="marksBody"></tbody></table>
+<div class="mark-summary"><div class="mark-stat"><strong id="marksAverage">—</strong><span>Average percentage</span></div><div class="mark-stat"><strong id="marksCount">0</strong><span>Tests recorded</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="countdown">
+<div class="section-head"><div><div class="kicker">06 / Countdown</div><h2>Countdown to your first board exam</h2><p>Set the date once CBSE publishes your confirmed exam schedule.</p></div></div>
+<div class="tool-card">
+<div class="field-row"><label for="examDate" style="align-self:center;color:var(--muted)">First exam date</label><input id="examDate" type="date"><button class="mini-btn" id="saveExamDate">Set countdown</button></div>
+<div class="timer-display" id="countdownDisplay" style="font-size:clamp(2rem,6vw,3.3rem)">Date not set</div><div class="timer-status" id="countdownStatus">Use your official CBSE date. No date has been assumed.</div>
+</div>
+</section>
+
+<section id="phases">
+<div class="section-head"><div><div class="kicker">07 / The long game</div><h2>Board preparation phases</h2><p>Use official CBSE dates and syllabus to adjust the calendar.</p></div></div>
+<div class="phases">
+<div class="phase"><div class="num">PHASE 01 · OCT–NOV</div><h3>Finish the syllabus</h3><ul><li>Prioritise chapters being taught at school.</li><li>Complete NCERT questions after each topic.</li><li>Revise one completed chapter each week.</li></ul></div>
+<div class="phase"><div class="num">PHASE 02 · DEC</div><h3>Strengthen weak areas</h3><ul><li>Revisit topics you cannot explain unaided.</li><li>Practise competency-based questions.</li><li>Keep an error notebook.</li></ul></div>
+<div class="phase"><div class="num">PHASE 03 · JAN & FINAL WEEKS</div><h3>Exam readiness</h3><ul><li>Revise all subjects systematically.</li><li>Attempt timed sample papers and analyse errors.</li><li>Focus on weak points, maps, diagrams and writing.</li></ul></div>
+</div>
+</section>
+
+<section id="mission">
+<div class="section-head"><div><div class="kicker">08 / Weekly accountability</div><h2>Mission checklist</h2><p>Your checkmarks are saved in this browser on this device.</p></div><button class="btn secondary" id="reset">Reset week</button></div>
+<div class="card">
+<div class="progress-text" id="progressText">0 of 6 missions complete</div><div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+<div class="mission-list" id="missionList"></div>
+</div>
+</section>
+
+<section id="rules">
+<div class="section-head"><div><div class="kicker">09 / Rules of the mission</div><h2>How to earn the marks</h2></div></div>
+<div class="grid">
+<div class="card"><h3>📐 Mathematics</h3><p>Solve without copying, show working, and redo errors after a day.</p></div>
+<div class="card"><h3>⚡ Science</h3><p>Combine NCERT learning with numericals, diagrams, reactions and written answers.</p></div>
+<div class="card"><h3>🌍 Social Science</h3><p>Practise key terms, structured answers, dates and maps.</p></div>
+<div class="card"><h3>📚 English + Sanskrit</h3><p>Practise literature, grammar and writing formats every week. Sanskrit gets a short daily slot.</p></div>
+</div>
+<p class="note">Sleep is part of the plan, not a reward. Aim for 8–10 hours at your age. A 95%+ target is ambitious, not guaranteed; consistent practice and correction are what improve your chances.</p>
+</section>
+
+<section>
+<div class="section-head"><div><div class="kicker">10 / Official resources</div><h2>Study from the right syllabus</h2><p>Confirm the current syllabus and sample-paper pattern here.</p></div></div>
+<div class="links"><a href="https://cbseacademic.nic.in/curriculum_2027.html" target="_blank" rel="noopener">CBSE 2026–27 curriculum ↗</a><a href="https://cbseacademic.nic.in/SQP_CLASSX_2026-27.html" target="_blank" rel="noopener">Class X sample papers ↗</a></div>
+</section>
+</main>
+<footer>THE TITAN PROJECT · CLASS X · BOARD EXAM 2027<br>Built for consistency, not cramming.</footer>
+</div>
+<script>
+const slots=[
+["5:45–6:25 a.m.","Morning revision","Formulas, reactions, vocabulary or yesterday’s mistakes."],
+["7:00 a.m.–1:30 p.m.","School","Understand lessons and mark doubts to clear later."],
+["1:30–2:30 p.m.","Lunch and rest","Recharge after school."],
+["2:30–3:30 p.m.","Main subject — learn","Complete a topic or a manageable chapter section."],
+["3:30–3:45 p.m.","Short break","Move around and hydrate."],
+["3:45–4:40 p.m.","Main subject — practise","NCERT questions, numericals or written answers."],
+["4:40–5:00 p.m.","Snack and reset","Prepare for your online class."],
+["5:00–6:00 p.m.","Online class","Attend and note doubts."],
+["6:00–7:00 p.m.","Second subject","Written practice and chapter revision."],
+["7:00–7:40 p.m.","Dinner and break","Rest your eyes."],
+["7:40–8:00 p.m.","Quick recall","Recall today’s key points."],
+["8:00–9:00 p.m.","Online class","Attend your second class."],
+["9:00–9:25 p.m.","Light revision","Sanskrit, English or mistake notebook."],
+["9:25–9:45 p.m.","Prepare for tomorrow","Pack your bag and wind down."],
+["9:45 p.m.","Sleep","Aim to wake refreshed."]
+];
+document.getElementById("schedule").innerHTML=slots.map(s=>`<div class="slot"><div class="time">${s[0]}</div><div><strong>${s[1]}</strong><small>${s[2]}</small></div></div>`).join("");
+const week={
+"Monday":["Mathematics","Science","Mathematics formulas","Sanskrit grammar"],
+"Tuesday":["Science","Social Science","Science reactions and diagrams","English literature"],
+"Wednesday":["Mathematics","English","Maths mistakes","Sanskrit vocabulary"],
+"Thursday":["Science","Sanskrit","Science definitions","English writing"],
+"Friday":["Social Science","Mathematics","SST dates and maps","Science recall"],
+"Saturday":["Weakest subject","English + Sanskrit","Weekly error review","Language grammar"],
+"Sunday":["Timed test","Test correction + backlog","Formula and fact recall","Plan next week"]
+};
+let chosen="Monday";
+const tabs=document.getElementById("dayTabs"), plan=document.getElementById("dayPlan");
+function drawWeek(){tabs.innerHTML=Object.keys(week).map(d=>`<button class="day-btn ${d===chosen?"active":""}" data-day="${d}">${d}</button>`).join("");tabs.querySelectorAll("button").forEach(b=>b.onclick=()=>{chosen=b.dataset.day;drawWeek()});let w=week[chosen];plan.innerHTML=`<div class="planbox"><span class="time">2:30–4:40 p.m.</span><h3>${w[0]}</h3><p>Learn concepts, revise and solve questions.</p></div><div class="planbox"><span class="time">6:00–7:00 p.m.</span><h3>${w[1]}</h3><p>Practise answers or solve problems.</p></div><div class="planbox"><span class="time">5:45–6:25 a.m.</span><h3>Morning revision</h3><p>${w[2]}</p></div><div class="planbox"><span class="time">9:00–9:25 p.m.</span><h3>Light revision</h3><p>${w[3]}</p></div>`}
+drawWeek();
+const tasks=["Completed the week’s planned chapters","Solved NCERT questions without copying solutions","Revised old chapters","Practised English and Sanskrit","Completed one test or timed section","Corrected mistakes and planned next week"];
+const key="titanProjectChecklist2027";
+let checked=[];try{checked=JSON.parse(localStorage.getItem(key)||"[]")}catch(e){checked=[]}
+function renderTasks(){document.getElementById("missionList").innerHTML=tasks.map((t,i)=>`<div class="mission"><input type="checkbox" id="task${i}" ${checked.includes(i)?"checked":""}><label for="task${i}">${t}</label></div>`).join("");document.querySelectorAll("#missionList input").forEach((el,i)=>el.addEventListener("change",()=>{if(el.checked&&!checked.includes(i))checked.push(i);if(!el.checked)checked=checked.filter(n=>n!==i);saveTasks()}));updateProgress()}
+function updateProgress(){let n=checked.length;document.getElementById("progressText").textContent=`${n} of ${tasks.length} missions complete`;document.getElementById("progressBar").style.width=`${n/tasks.length*100}%`}
+function saveTasks(){try{localStorage.setItem(key,JSON.stringify(checked))}catch(e){}updateProgress()}
+renderTasks();document.getElementById("reset").onclick=()=>{checked=[];try{localStorage.removeItem(key)}catch(e){}renderTasks()};
+
+// Chapter dashboard: seeded with the user's current chapters; editable and persisted locally.
+const chapterKey="titanProjectChapters2027";
+const starterChapters=[
+{subject:"Mathematics",name:"Quadratic Equations",status:"In progress"},
+{subject:"Physics",name:"Electricity",status:"In progress"},
+{subject:"Biology",name:"How Do Organisms Reproduce?",status:"In progress"},
+{subject:"Chemistry",name:"Metals and Non-metals",status:"In progress"},
+{subject:"Social Science",name:"Money and Credit",status:"In progress"},
+{subject:"English",name:"Glimpses of India",status:"In progress"},
+{subject:"Sanskrit",name:"Begin Sanskrit preparation",status:"Not started"}
+];
+let chapters=[];try{chapters=JSON.parse(localStorage.getItem(chapterKey)||"null")||starterChapters}catch(e){chapters=starterChapters}
+function saveChapters(){try{localStorage.setItem(chapterKey,JSON.stringify(chapters))}catch(e){}}
+function renderChapters(){
+ const list=document.getElementById("chapterList");
+ list.innerHTML=chapters.map((c,i)=>`<div class="chapter-row"><label><strong>${escapeHTML(c.subject)}</strong> · ${escapeHTML(c.name)}</label><select aria-label="Status for ${escapeHTML(c.name)}" data-index="${i}"><option ${c.status==="Not started"?"selected":""}>Not started</option><option ${c.status==="In progress"?"selected":""}>In progress</option><option ${c.status==="Revised"?"selected":""}>Revised</option><option ${c.status==="Mastered"?"selected":""}>Mastered</option></select><button class="mini-btn" data-remove="${i}" aria-label="Remove ${escapeHTML(c.name)}">Remove</button></div>`).join("");
+ list.querySelectorAll("select").forEach(el=>el.onchange=()=>{chapters[+el.dataset.index].status=el.value;saveChapters();renderChapters()});
+ list.querySelectorAll("[data-remove]").forEach(el=>el.onclick=()=>{chapters.splice(+el.dataset.remove,1);saveChapters();renderChapters()});
+ const done=chapters.filter(c=>c.status==="Mastered").length;
+ document.getElementById("chapterProgressText").textContent=`${done} of ${chapters.length} chapters mastered`;
+ document.getElementById("chapterProgressBar").style.width=(chapters.length?done/chapters.length*100:0)+"%";
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]))}
+document.getElementById("addChapter").onclick=()=>{const subject=document.getElementById("chapterSubject").value;const name=document.getElementById("chapterName").value.trim();if(!name)return;chapters.push({subject,name,status:"Not started"});document.getElementById("chapterName").value="";saveChapters();renderChapters()};
+renderChapters();
+
+// Focus timer
+let timerInitial=25*60,timerRemaining=timerInitial,timerInterval=null;
+const timerDisplay=document.getElementById("timerDisplay"),timerStatus=document.getElementById("timerStatus");
+function paintTimer(){const m=Math.floor(timerRemaining/60),s=timerRemaining%60;timerDisplay.textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}
+function stopTimer(){if(timerInterval!==null){clearInterval(timerInterval);timerInterval=null}}
+document.querySelectorAll("[data-min]").forEach(b=>b.onclick=()=>{stopTimer();timerInitial=Number(b.dataset.min)*60;timerRemaining=timerInitial;timerStatus.textContent="Ready for a "+b.dataset.min+"-minute focus sprint";paintTimer()});
+document.getElementById("timerStart").onclick=()=>{if(timerInterval!==null)return;if(timerRemaining<=0){timerRemaining=timerInitial}timerStatus.textContent="Focus mode — one task at a time";timerInterval=setInterval(()=>{timerRemaining--;paintTimer();if(timerRemaining<=0){stopTimer();timerStatus.textContent="Sprint complete. Take a short break."}},1000)};
+document.getElementById("timerPause").onclick=()=>{stopTimer();timerStatus.textContent="Paused — resume when ready"};
+document.getElementById("timerReset").onclick=()=>{stopTimer();timerRemaining=timerInitial;timerStatus.textContent="Timer reset";paintTimer()};
+paintTimer();
+
+// Marks tracker
+const marksKey="titanProjectMarks2027";let marks=[];try{marks=JSON.parse(localStorage.getItem(marksKey)||"[]")}catch(e){}
+function renderMarks(){const body=document.getElementById("marksBody");body.innerHTML=marks.map((m,i)=>`<tr><td>${escapeHTML(m.subject)}</td><td>${m.earned}/${m.max}</td><td>${(m.earned/m.max*100).toFixed(1)}%</td><td><button class="mini-btn" data-mark-remove="${i}">×</button></td></tr>`).join("");body.querySelectorAll("[data-mark-remove]").forEach(b=>b.onclick=()=>{marks.splice(+b.dataset.markRemove,1);saveMarks()});const avg=marks.length?marks.reduce((a,m)=>a+m.earned/m.max*100,0)/marks.length:null;document.getElementById("marksAverage").textContent=avg===null?"—":avg.toFixed(1)+"%";document.getElementById("marksCount").textContent=marks.length}
+function saveMarks(){try{localStorage.setItem(marksKey,JSON.stringify(marks))}catch(e){}renderMarks()}
+document.getElementById("addMark").onclick=()=>{const subject=document.getElementById("markSubject").value.trim(),earned=Number(document.getElementById("markEarned").value),max=Number(document.getElementById("markMax").value);if(!subject||!Number.isFinite(earned)||!Number.isFinite(max)||max<=0||earned<0||earned>max){alert("Enter a test name and valid marks (scored must be between 0 and maximum).");return}marks.push({subject,earned,max});document.getElementById("markSubject").value="";document.getElementById("markEarned").value="";document.getElementById("markMax").value="";saveMarks()};
+renderMarks();
+
+// Countdown uses a date the student enters; no exam date is assumed.
+const examKey="titanProjectExamDate2027";const examInput=document.getElementById("examDate");let examDate="";try{examDate=localStorage.getItem(examKey)||""}catch(e){}examInput.value=examDate;
+function updateCountdown(){const out=document.getElementById("countdownDisplay"),status=document.getElementById("countdownStatus");if(!examInput.value){out.textContent="Date not set";status.textContent="Use your official CBSE date. No date has been assumed.";return}const target=new Date(examInput.value+"T00:00:00");const now=new Date();const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());const days=Math.ceil((target-today)/86400000);if(days>0){out.textContent=days+" days to go";status.textContent="Keep building consistency, one study session at a time."}else if(days===0){out.textContent="Exam day";status.textContent="Stay calm, read carefully, and trust your preparation."}else{out.textContent=Math.abs(days)+" days since date";status.textContent="That date has passed. Update it if your schedule changed."}}
+document.getElementById("saveExamDate").onclick=()=>{try{localStorage.setItem(examKey,examInput.value)}catch(e){}updateCountdown()};examInput.onchange=updateCountdown;updateCountdown();
+
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

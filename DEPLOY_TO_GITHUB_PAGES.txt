@@ -1,0 +1,33 @@
+PUBLISH THE TITAN PROJECT FOR FREE WITH GITHUB PAGES
+
+You only need to do this once. The GitHub website's labels may change slightly.
+
+A. Upload the app files
+1. On your phone or computer, open https://github.com/ and sign in or create an account.
+2. Create a new repository. A simple name is titan-project-2027. For the easiest setup, set it to Public.
+3. Open the new repository and choose Add file > Upload files.
+4. Extract titan_project_app_package.zip first. Upload the files INSIDE the extracted folder, not the ZIP itself. Upload index.html, manifest.json, service-worker.js, icon-192.png, icon-512.png, README.txt and this guide. Keep them together in the repository root.
+5. Commit/save the upload.
+
+B. Turn on GitHub Pages
+1. In the repository, open Settings.
+2. Open Pages (sometimes under the Code and automation section).
+3. Under Build and deployment, choose Deploy from a branch.
+4. Select the main branch and /(root), then Save.
+5. Wait a minute or two. GitHub will show a published URL, usually like https://YOUR-USERNAME.github.io/titan-project-2027/ . Use the exact URL shown by GitHub.
+
+C. Install the icon on Android
+1. Open that published URL in Google Chrome on your Android phone.
+2. Let the page finish loading while online.
+3. Tap ⋮ in Chrome and choose Install app. If you see Add to Home screen instead, choose that and follow the prompts.
+4. Confirm the installation. Find The Titan Project icon on your home screen or app list.
+
+IF INSTALL DOESN'T APPEAR
+- Check that GitHub Pages says the site is published and the URL begins with https://.
+- Open the URL ending in /titan-project-2027/ (or the exact path GitHub provides), not the raw repository page.
+- Confirm index.html, manifest.json, service-worker.js and both icon PNGs are in the same published root folder.
+- Refresh the page, wait for it to finish loading, and check Chrome's ⋮ menu again.
+- Menu labels and install availability vary by Android version and browser.
+
+PRIVACY / BACKUP
+The app stores progress locally in the browser; this GitHub Pages setup publishes the app files, not your local checklist or marks. Don't clear the browser's site data unless you're prepared to lose locally stored progress. Save important marks/progress separately if you need a backup.
